@@ -44,5 +44,11 @@ namespace OTELREHBER.Controllers
             var result = await _otelService.OtelDetay( id);
             return Ok(result);
         }
+        [HttpGet("OtelListesi")]
+        public async Task<IActionResult> OtelListesi()
+        {
+            var result = await _otelService.OtelListesi();
+            return Ok(result);
+        }
     }
 }

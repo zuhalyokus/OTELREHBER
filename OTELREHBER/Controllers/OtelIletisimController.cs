@@ -28,7 +28,13 @@ namespace OTELREHBER.Controllers
         [HttpDelete("DeleteOtelIletisim")]
         public IActionResult DeleteGetOteliletisim(long id)
         {
-            var result = _otelService.OtelSilme(id);
+            var result = _otelService.OtelIletisimSil(id);
+            return Ok(result);
+        }
+        [HttpGet("OteliletisimListesi")]
+        public async Task<IActionResult> OteliletisimListesi(long id)
+        {
+            var result = await _otelService.OteliletisimListesi(id);
             return Ok(result);
         }
     }

@@ -10,5 +10,7 @@ namespace OTELREHBER.Services.Abstract
         public bool OtelIletisimSil(long Iletsimid);
         public Task<List<YetkiliBilgisi>> OtelYetkilileri();
         public Task<OtelDetay> OtelDetay(long id);
+        public Task<List<Otel>> OtelListesi();
+        public Task<List<Oteliletisim>> OteliletisimListesi(long id);
     }
 }

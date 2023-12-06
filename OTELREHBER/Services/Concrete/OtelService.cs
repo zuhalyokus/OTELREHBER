@@ -65,8 +65,7 @@ namespace OTELREHBER.Services.Concrete
         }
 
         public async Task<List<YetkiliBilgisi>> OtelYetkilileri()
-        {
-            // Yetkili adları ve soyadları çek
+        {     
             var yetkiliBilgileri = await _context.Otels
                 .Select(otel => new YetkiliBilgisi { YetkiliAd = otel.YetkiliAd, YetkiliSoyad = otel.YetkiliSoyad })
                 .ToListAsync();
@@ -99,6 +98,17 @@ namespace OTELREHBER.Services.Concrete
             }
 
             return detay;
+        }
+
+        public Task<List<Otel>> OtelListesi()
+        {
+            var Otellistesi = _context.Otels.ToListAsync();
+            return Otellistesi;
+        }
+        public Task<List<Oteliletisim>> OteliletisimListesi(long id)
+        {
+            var Oteliletisimlistesi = _context.Oteliletisims.Where(x=>x.OtelID== id).ToListAsync(); 
+            return Oteliletisimlistesi;
         }
     }
 }
